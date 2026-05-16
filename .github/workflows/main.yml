@@ -38,7 +38,7 @@ jobs:
     deploy:
         name: Publicação
         runs-on: ubuntu-22.04
-        needs: test
+        needs: build
         steps:
           
            - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
                  aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                  application_name: api-java-aws
                  environment_name: Api-java-aws-env
-                 region: us-east-2
+                 region: us-east-1
                  deployment_package: api-java-aws.jar
                  version_label: ${{ github.sha }}
 
